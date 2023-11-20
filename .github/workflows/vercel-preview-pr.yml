@@ -15,14 +15,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
-      - name: Dump org id
-        run: echo -n "${{ secrets.VERCEL_ORG_ID }}" | xxd -ps
-      - name: Dump project
-        run: echo -n "${{ secrets.VERCEL_PROJECT_ID  }}" | xxd -ps
-
-      - name: Dump token
-        run: echo -n "${{ secrets.VERCEL_TOKEN  }}" | xxd -ps
-
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
       - name: Build Project Artifacts
