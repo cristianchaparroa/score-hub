@@ -21,6 +21,9 @@ jobs:
           node-version: '18.x'
       - run: yarn --ignore-scripts
         shell: bash
+      - name: install deps
+        run : |
+          yarn install
       - name: Create local node and deploy
         run: |
           yarn hardhat node &
